@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/calendar_main_fl"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <FrameLayout
+            android:id="@+id/holder_fl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@id/space1"
+            android:background="@drawable/custom_rect"
+            android:elevation="@dimen/two_dp">
+
+            <com.goodcompany.group5_finalproject_w2019_mad3125.Adapters.CustomViewPager
+                android:id="@+id/viewpager"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/parent_fl"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/space1"
+            android:background="@drawable/custom_rect"
+            android:elevation="@dimen/two_dp"
+            android:visibility="gone"/>
+
+        <View
+            android:id="@+id/space1"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:layout_above="@id/footer"/>
+
+        <!--Footer-->
+        <LinearLayout
+            android:id="@+id/footer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:orientation="horizontal"
+            android:padding="@dimen/ten_dp"
+            android:weightSum="3">
+
+            <ImageView
+                android:id="@+id/dashboard_foot_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:padding="@dimen/ten_dp"
+                android:src="@drawable/dashboard" />
+
+            <ImageView
+                android:id="@+id/list_foot_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:padding="@dimen/ten_dp"
+                android:src="@drawable/list" />
+
+            <ImageView
+                android:id="@+id/family_foot_iv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:layout_weight="1"
+                android:padding="@dimen/ten_dp"
+                android:src="@drawable/family" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</FrameLayout>

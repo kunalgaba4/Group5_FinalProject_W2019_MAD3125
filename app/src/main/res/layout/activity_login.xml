@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:focusableInTouchMode="true">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_0.03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.03" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_0.97"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.97" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_0.10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.10" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_0.08"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_0.90"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_0.94"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.94" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_h_0.20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.22" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_h_0.65"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.68" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_h_0.50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.40" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/gl_h_0.20"
+        app:layout_constraintRight_toRightOf="parent"
+        android:src="@mipmap/loginscreentopbg"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/login_top_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:textSize="29sp"
+        android:textColor="@color/black"
+        app:layout_constraintLeft_toRightOf="@id/gl_v_0.03"
+        app:layout_constraintTop_toBottomOf="@id/gl_h_0.20" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/email_color"
+        app:layout_constraintLeft_toRightOf="@id/gl_v_0.10"
+        app:layout_constraintRight_toLeftOf="@id/gl_v_0.90"
+        app:layout_constraintTop_toBottomOf="@id/gl_h_0.50">
+
+        <android.support.v7.widget.AppCompatEditText
+            android:id="@+id/input_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email or Username"
+            android:singleLine="true"
+            android:textColor="@color/email_color"
+            android:textSize="@dimen/sixteen_sp"
+            android:textColorHighlight="@color/blackLight3" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/email_color"
+        app:layout_constraintLeft_toRightOf="@id/gl_v_0.10"
+        app:layout_constraintRight_toLeftOf="@id/gl_v_0.90"
+        android:layout_marginTop="@dimen/five_dp"
+        app:layout_constraintTop_toBottomOf="@id/input_layout_name">
+
+        <EditText
+            android:id="@+id/input_password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:textSize="@dimen/sixteen_sp"
+            android:textColor="@color/email_color"
+            android:textColorHighlight="@color/blackLight3" />
+    </android.support.design.widget.TextInputLayout>
+
+    <TextView
+        android:id="@+id/forgot_password_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Forgot Password?"
+        android:textColorHint="@color/email_color"
+        android:layout_marginTop="@dimen/twelve_dp"
+        app:layout_constraintRight_toLeftOf="@id/gl_v_0.90"
+        app:layout_constraintTop_toBottomOf="@id/input_layout_password" />
+
+<com.goodcompany.group5_finalproject_w2019_mad3125.Utils.ShadowLayout
+        android:id="@+id/login_sl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        app:layout_constraintTop_toBottomOf="@id/gl_h_0.65"
+        app:layout_constraintLeft_toRightOf="@id/gl_v_0.08"
+        app:layout_constraintRight_toLeftOf="@id/gl_v_0.94"
+        app:sl_shadow_angle="90"
+        app:sl_shadow_color="@color/month_view_shadow"
+        app:sl_shadow_distance="5dp"
+        app:sl_shadow_radius="@dimen/five_dp">
+
+        <TextView
+            android:id="@+id/login_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="@dimen/twelve_dp"
+            android:text="LOGIN"
+            android:letterSpacing="0.1"
+            android:background="@drawable/custom_month_view_background"
+            android:textColor="@color/md_white_1000"
+            android:textSize="@dimen/twelve_sp" />
+</com.goodcompany.group5_finalproject_w2019_mad3125.Utils.ShadowLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginBottom="@dimen/ten_dp">
+
+        <TextView
+            android:id="@+id/no_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:textColor="@color/whiteDark10"
+            android:text="Don't have an account ?" />
+
+        <com.goodcompany.group5_finalproject_w2019_mad3125.Utils.ShadowLayout
+            android:id="@+id/spinner_sl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/no_account"
+            app:sl_shadow_angle="90"
+            app:sl_shadow_color="@color/week_view_shadow"
+            app:sl_shadow_distance="5dp"
+            app:sl_shadow_radius="@dimen/five_dp">
+
+            <TextView
+                android:id="@+id/signup_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="@dimen/five_dp"
+                android:paddingBottom="@dimen/five_dp"
+                android:paddingRight="@dimen/ten_dp"
+                android:paddingLeft="@dimen/ten_dp"
+                android:text="Sign Up"
+                android:background="@drawable/custom_week_view_background"
+                android:textColor="@color/md_white_1000"
+                android:textSize="@dimen/twelve_sp" />
+        </com.goodcompany.group5_finalproject_w2019_mad3125.Utils.ShadowLayout>
+
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>

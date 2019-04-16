@@ -1,0 +1,243 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_0.03"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.03" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_0.08"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.08" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_0.94"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.94" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_0.97"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.97" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_0.10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.10" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_v_0.90"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.90" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_h_0.20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.22" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_h_0.65"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.68" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/gl_h_0.50"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.36" />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@mipmap/loginscreentopbg"
+        app:layout_constraintBottom_toTopOf="@id/gl_h_0.20"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/signup_top_tv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Signup"
+        android:textColor="@color/black"
+        android:textSize="29sp"
+        app:layout_constraintLeft_toRightOf="@id/gl_v_0.03"
+        app:layout_constraintTop_toBottomOf="@id/gl_h_0.20" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/email_color"
+        app:layout_constraintLeft_toRightOf="@id/gl_v_0.10"
+        app:layout_constraintRight_toLeftOf="@id/gl_v_0.90"
+        app:layout_constraintTop_toBottomOf="@id/gl_h_0.50">
+
+        <EditText
+            android:id="@+id/username"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Username"
+            android:singleLine="true"
+            android:textColor="@color/blackLight3"
+            android:textColorHighlight="@color/blackLight3"
+            android:textSize="@dimen/sixteen_sp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/email_color"
+        app:layout_constraintLeft_toRightOf="@id/gl_v_0.10"
+        app:layout_constraintRight_toLeftOf="@id/gl_v_0.90"
+        app:layout_constraintTop_toBottomOf="@id/input_layout_name">
+
+        <EditText
+            android:id="@+id/email"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Email"
+            android:singleLine="true"
+            android:textColor="@color/blackLight3"
+            android:textColorHighlight="@color/blackLight3"
+            android:textSize="@dimen/sixteen_sp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/email_color"
+        app:layout_constraintLeft_toRightOf="@id/gl_v_0.10"
+        app:layout_constraintRight_toLeftOf="@id/gl_v_0.90"
+        app:layout_constraintTop_toBottomOf="@id/input_layout_email">
+
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password"
+            android:inputType="textPassword"
+            android:maxLength="8"
+            android:singleLine="true"
+            android:textColor="@color/blackLight3"
+            android:textColorHighlight="@color/blackLight3"
+            android:textSize="@dimen/sixteen_sp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/input_layout_conf_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:textColorHint="@color/email_color"
+        app:layout_constraintLeft_toRightOf="@id/gl_v_0.10"
+        app:layout_constraintRight_toLeftOf="@id/gl_v_0.90"
+        app:layout_constraintTop_toBottomOf="@id/input_layout_password">
+
+        <EditText
+            android:id="@+id/confirm_pass"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Confirm Password"
+            android:inputType="textPassword"
+            android:maxLength="8"
+            android:singleLine="true"
+            android:textColor="@color/blackLight3"
+            android:textColorHighlight="@color/blackLight3"
+            android:textSize="@dimen/sixteen_sp" />
+    </android.support.design.widget.TextInputLayout>
+
+    <com.goodcompany.group5_finalproject_w2019_mad3125.Utils.ShadowLayout
+        android:id="@+id/sign_up_tv_sl"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginTop="@dimen/fifteen_dp"
+        app:layout_constraintLeft_toRightOf="@id/gl_v_0.08"
+        app:layout_constraintRight_toLeftOf="@id/gl_v_0.94"
+        app:layout_constraintTop_toBottomOf="@id/input_layout_conf_password"
+        app:sl_shadow_angle="90"
+        app:sl_shadow_color="@color/month_view_shadow"
+        app:sl_shadow_distance="5dp"
+        app:sl_shadow_radius="@dimen/five_dp">
+
+        <TextView
+            android:id="@+id/sign_up_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_month_view_background"
+            android:gravity="center"
+            android:padding="@dimen/twelve_dp"
+            android:text="SIGN UP"
+            android:textColor="@color/md_white_1000"
+            android:textSize="@dimen/twelve_sp" />
+
+    </com.goodcompany.group5_finalproject_w2019_mad3125.Utils.ShadowLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/ten_dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
+
+        <TextView
+            android:id="@+id/no_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="Already have an account ?"
+            android:textColor="@color/whiteDark10" />
+
+        <com.goodcompany.group5_finalproject_w2019_mad3125.Utils.ShadowLayout
+            android:id="@+id/signin_sl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_toRightOf="@id/no_account"
+            app:sl_shadow_angle="90"
+            app:sl_shadow_color="@color/week_view_shadow"
+            app:sl_shadow_distance="5dp"
+            app:sl_shadow_radius="@dimen/five_dp">
+
+            <TextView
+                android:id="@+id/signIn_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_week_view_background"
+                android:paddingBottom="@dimen/five_dp"
+                android:paddingLeft="@dimen/ten_dp"
+                android:paddingRight="@dimen/ten_dp"
+                android:paddingTop="@dimen/five_dp"
+                android:text="Sign in"
+                android:textColor="@color/md_white_1000"
+                android:textSize="@dimen/twelve_sp" />
+
+        </com.goodcompany.group5_finalproject_w2019_mad3125.Utils.ShadowLayout>
+    </RelativeLayout>
+
+</android.support.constraint.ConstraintLayout>
