@@ -3,6 +3,7 @@ package com.goodcompany.group5_finalproject_w2019_mad3125.Fragments;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.annotation.NonNull;
@@ -18,6 +19,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.goodcompany.group5_finalproject_w2019_mad3125.Activities.BaseActivity;
+import com.goodcompany.group5_finalproject_w2019_mad3125.Activities.CheckoutActivity;
 import com.goodcompany.group5_finalproject_w2019_mad3125.Adapters.CartAdapter;
 import com.goodcompany.group5_finalproject_w2019_mad3125.Dialogs.MyProgressDialog;
 import com.goodcompany.group5_finalproject_w2019_mad3125.Listeners.ProductSelectListener;
@@ -157,8 +159,11 @@ public class CartFragment extends Fragment implements ProductSelectListener {
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.sl_back:
+                getFragmentManager().popBackStack();
                 break;
             case R.id.sl_share:
+                Intent i = new Intent(getActivity(), CheckoutActivity.class);
+                startActivity(i);
                 break;
         }
     }
