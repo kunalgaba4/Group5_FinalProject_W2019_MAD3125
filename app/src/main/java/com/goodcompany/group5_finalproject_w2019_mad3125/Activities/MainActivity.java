@@ -98,14 +98,14 @@ public class MainActivity extends BaseActivity {
     }
 
     public void setupListImage() {
-        viewpager.setCurrentItem(3);
+        viewpager.setCurrentItem(1);
         dashboardFootIv.setImageResource(R.drawable.dashboard);
         listFootIv.setImageResource(R.drawable.list_active);
         familyFootIv.setImageResource(R.drawable.family);
     }
 
     public void setupFamilyImage() {
-        viewpager.setCurrentItem(4);
+        viewpager.setCurrentItem(2);
         dashboardFootIv.setImageResource(R.drawable.dashboard);
         listFootIv.setImageResource(R.drawable.list);
         familyFootIv.setImageResource(R.drawable.family_active);

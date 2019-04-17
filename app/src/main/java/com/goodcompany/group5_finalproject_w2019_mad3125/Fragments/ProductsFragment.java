@@ -22,7 +22,6 @@ import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
 import java.lang.reflect.Type;
-import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 import butterknife.BindView;
@@ -97,6 +96,11 @@ public class ProductsFragment extends Fragment implements ProductSelectListener 
         b.putSerializable("product",productsModal);
         productDetailsFragment.setArguments(b);
         ((BaseActivity) getActivity()).addFragment(R.id.parent, productDetailsFragment, "details", "details", true);
+
+    }
+
+    @Override
+    public void onProductDelete(int position) {
 
     }
 }

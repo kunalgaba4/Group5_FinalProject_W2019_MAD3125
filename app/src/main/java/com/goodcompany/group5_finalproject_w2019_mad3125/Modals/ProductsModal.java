@@ -24,6 +24,16 @@ public class ProductsModal implements Serializable {
     @Expose
     private String description;
 
+    public Integer getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(Integer quantity) {
+        this.quantity = quantity;
+    }
+
+    private Integer quantity;
+
     public Integer getId() {
         return id;
     }

@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
+import com.goodcompany.group5_finalproject_w2019_mad3125.Activities.BaseActivity;
 import com.goodcompany.group5_finalproject_w2019_mad3125.Modals.ProductsModal;
 import com.goodcompany.group5_finalproject_w2019_mad3125.R;
 import com.goodcompany.group5_finalproject_w2019_mad3125.Singelton.ShoppingCart;
@@ -46,7 +47,16 @@ public class ProductDetailsFragment extends Fragment {
     @BindView(R.id.tvDecription)
     TextView tvDecription;
     Unbinder unbinder;
+    @BindView(R.id.sl_decrease)
+    ShadowLayout slDecrease;
+    @BindView(R.id.integer_number)
+    TextView integerNumber;
+    @BindView(R.id.increase)
+    TextView increase;
+    @BindView(R.id.sl_increase)
+    ShadowLayout slIncrease;
     private ProductsModal productsModal;
+    int minteger = 1;
 
     public ProductDetailsFragment() {
     }
@@ -66,7 +76,7 @@ public class ProductDetailsFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         productsModal = (ProductsModal) getArguments().getSerializable("product");
         tvDecription.setText(productsModal.getDescription());
-        tvQuantity.setText("1");
+        tvQuantity.setText(String.valueOf("Price: "+productsModal.getPrice()));
 
         RequestOptions options = new RequestOptions()
                 .centerCrop()
@@ -77,20 +87,49 @@ public class ProductDetailsFragment extends Fragment {
 
     }
 
+    private void display(int number) {
+        integerNumber.setText("" + number);
+        tvQuantity .setText(String.valueOf("Price: "+productsModal.getPrice() * number));
+
+    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
     }
 
-    @OnClick({R.id.sl_back, R.id.sl_share})
+    @OnClick({R.id.sl_back, R.id.sl_share, R.id.sl_decrease, R.id.sl_increase})
     public void onViewClicked(View view) {
         switch (view.getId()) {
             case R.id.sl_back:
                 getFragmentManager().popBackStack();
                 break;
             case R.id.sl_share:
-                ShoppingCart.ourInstance.addProductToCart();
+                ProductsModal pr =ShoppingCart.ourInstance.getProductById(String.valueOf(productsModal.getId()));
+                if (pr != null){
+                    productsModal.setQuantity(productsModal.getQuantity()+minteger);
+                    ((BaseActivity)getActivity()).showMessage("Product Successfully added to the cart");
+
+                }else {
+                    productsModal.setQuantity(minteger);
+                    ShoppingCart.ourInstance.addProductToCart(String.valueOf(productsModal.getId()),productsModal);
+                    ((BaseActivity)getActivity()).showMessage("Product Successfully added to the cart");
+                }
+
+                break;
+            case R.id.sl_decrease:
+                if (minteger == 1){
+
+                }else {
+                    minteger = minteger - 1;
+                    display(minteger);
+                }
+
+                break;
+            case R.id.sl_increase:
+                minteger = minteger + 1;
+                display(minteger);
                 break;
         }
     }

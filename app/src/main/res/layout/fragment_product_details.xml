@@ -91,13 +91,92 @@
             android:layout_gravity="center"
             android:src="@mipmap/loginscreentopbg"/>
 
-
-        <TextView
-            android:hint="Quantity"
-            android:layout_width="wrap_content"
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="@dimen/twenty_dp"
-            android:id="@+id/tvQuantity"/>
+            android:layout_marginTop="@dimen/five_dp"
+            android:weightSum="3"
+            android:orientation="horizontal">
+
+            <TextView
+                android:hint="Quantity"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/twenty_dp"
+                android:id="@+id/tvQuantity"
+                android:gravity="center"
+                android:layout_weight="2"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="right"
+                android:layout_weight="1">
+
+                <com.goodcompany.group5_finalproject_w2019_mad3125.Utils.ShadowLayout
+                    android:id="@+id/sl_decrease"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:sl_shadow_angle="90"
+                    app:sl_shadow_color="@color/share_shadow"
+                    app:sl_shadow_distance="10dp"
+                    app:sl_shadow_radius="@dimen/ten_dp">
+
+                    <TextView
+                        android:id="@+id/decrease"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/heading"
+                        android:background="@drawable/button_share_background"
+                        android:paddingBottom="@dimen/five_dp"
+                        android:paddingLeft="@dimen/twenty_dp"
+                        android:paddingRight="@dimen/twenty_dp"
+                        android:paddingTop="@dimen/five_dp"
+                        android:text="-"
+                        android:textColor="@color/md_white_1000" />
+                </com.goodcompany.group5_finalproject_w2019_mad3125.Utils.ShadowLayout>
+
+                <TextView
+                    android:id="@+id/integer_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="16dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginRight="10dp"
+                    android:layout_marginTop="16dp"
+                    android:text="1"
+                    android:textSize="20sp" />
+
+                <com.goodcompany.group5_finalproject_w2019_mad3125.Utils.ShadowLayout
+                    android:id="@+id/sl_increase"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:sl_shadow_angle="90"
+                    app:sl_shadow_color="@color/share_shadow"
+                    app:sl_shadow_distance="10dp"
+                    app:sl_shadow_radius="@dimen/ten_dp">
+
+                    <TextView
+                        android:id="@+id/increase"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_below="@id/heading"
+                        android:background="@drawable/button_share_background"
+                        android:paddingBottom="@dimen/five_dp"
+                        android:paddingLeft="@dimen/twenty_dp"
+                        android:paddingRight="@dimen/twenty_dp"
+                        android:paddingTop="@dimen/five_dp"
+                        android:text="+"
+                        android:textColor="@color/md_white_1000" />
+                </com.goodcompany.group5_finalproject_w2019_mad3125.Utils.ShadowLayout>
+            </LinearLayout>
+
+
+
+        </LinearLayout>
+
+
 
 
         <TextView

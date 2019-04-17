@@ -17,13 +17,13 @@ import com.goodcompany.group5_finalproject_w2019_mad3125.R;
 
 import java.util.ArrayList;
 
-public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ProductsViewHolder> {
+public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder> {
 
     private Context mContext;
     private ArrayList<ProductsModal> productsModals = new ArrayList<>();
     private ProductSelectListener productSelectListener;
 
-    public ProductsAdapter(Context mContext, ArrayList<ProductsModal> productsModals, ProductSelectListener productSelectListener){
+    public CartAdapter(Context mContext, ArrayList<ProductsModal> productsModals, ProductSelectListener productSelectListener){
         this.mContext = mContext;
         this.productsModals.addAll(productsModals);
         this.productSelectListener = productSelectListener;
@@ -31,20 +31,22 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
     }
     @NonNull
     @Override
-    public ProductsViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.custom_product_row, viewGroup, false);
-        ProductsViewHolder productsViewHolder  = new ProductsViewHolder(view);
-        return productsViewHolder;
+    public CartAdapter.CartViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.custom_cart_row, viewGroup, false);
+        CartAdapter.CartViewHolder CartViewHolder  = new CartAdapter.CartViewHolder(view);
+        return CartViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProductsViewHolder productsViewHolder, int i) {
+    public void onBindViewHolder(@NonNull CartAdapter.CartViewHolder cartViewHolder, int i) {
         RequestOptions options = new RequestOptions()
                 .centerCrop()
                 .placeholder(R.mipmap.ic_launcher_round)
                 .error(R.mipmap.ic_launcher_round);
-        Glide.with(mContext).load(productsModals.get(i).getImgUrl()).apply(options).into(productsViewHolder.imagView);        productsViewHolder.description.setText(productsModals.get(i).getDescription());
-        productsViewHolder.price.setText("Price: "+productsModals.get(i).getPrice());
+        Glide.with(mContext).load(productsModals.get(i).getImgUrl()).apply(options).into(cartViewHolder.imagView);
+        cartViewHolder.description.setText(productsModals.get(i).getName());
+        cartViewHolder.price.setText("Price: "+(productsModals.get(i).getPrice()*productsModals.get(i).getQuantity()));
+        cartViewHolder.quantity.setText("Quantity: "+productsModals.get(i).getQuantity());
 
     }
 
@@ -53,21 +55,24 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
         return productsModals.size();
     }
 
-    public class ProductsViewHolder extends RecyclerView.ViewHolder {
-        private ImageView imagView;
-        private TextView description, price;
-        public ProductsViewHolder(@NonNull View itemView) {
+    public class CartViewHolder extends RecyclerView.ViewHolder {
+        private ImageView imagView,delete;
+        private TextView description, price, quantity;
+        public CartViewHolder(@NonNull View itemView) {
             super(itemView);
             imagView = itemView.findViewById(R.id.imageView);
             description = itemView.findViewById(R.id.description);
             price = itemView.findViewById(R.id.price);
+            delete = itemView.findViewById(R.id.delete_iv);
+            quantity = itemView.findViewById(R.id.quantity);
 
-            itemView.setOnClickListener(new View.OnClickListener() {
+            delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    productSelectListener.onProductSelected(getAdapterPosition());
+                    productSelectListener.onProductDelete(productsModals.get(getAdapterPosition()).getId());
                 }
             });
         }
     }
 }
+
