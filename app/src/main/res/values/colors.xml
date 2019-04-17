@@ -341,4 +341,6 @@
     <color name="whiteLight">#c6ffffff</color>
 
     <color name="email_color">#435479</color>
+    <color name="back_shadow">#35ff0960</color>
+
 </resources>

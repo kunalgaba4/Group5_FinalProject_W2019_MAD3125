@@ -12,7 +12,9 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.goodcompany.group5_finalproject_w2019_mad3125.Activities.BaseActivity;
 import com.goodcompany.group5_finalproject_w2019_mad3125.Adapters.ProductsAdapter;
+import com.goodcompany.group5_finalproject_w2019_mad3125.Listeners.ProductSelectListener;
 import com.goodcompany.group5_finalproject_w2019_mad3125.Modals.ProductsModal;
 import com.goodcompany.group5_finalproject_w2019_mad3125.R;
 import com.goodcompany.group5_finalproject_w2019_mad3125.Utils.ReadJSONUtils;
@@ -30,7 +32,7 @@ import butterknife.Unbinder;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class ProductsFragment extends Fragment {
+public class ProductsFragment extends Fragment implements ProductSelectListener {
 
     @BindView(R.id.rvProducts)
     RecyclerView rvProducts;
@@ -75,7 +77,7 @@ public class ProductsFragment extends Fragment {
     }
 
     private void setupProductsAdapter() {
-        productsAdapter = new ProductsAdapter(mContext, productsModals);
+        productsAdapter = new ProductsAdapter(mContext, productsModals, this);
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity());
         rvProducts.setLayoutManager(linearLayoutManager);
         rvProducts.setAdapter(productsAdapter);
@@ -85,5 +87,16 @@ public class ProductsFragment extends Fragment {
     public void onDestroyView() {
         super.onDestroyView();
         unbinder.unbind();
+    }
+
+    @Override
+    public void onProductSelected(int position) {
+        ProductDetailsFragment productDetailsFragment =  new ProductDetailsFragment();
+        Bundle b = new Bundle();
+        ProductsModal productsModal = productsModals.get(position);
+        b.putSerializable("product",productsModal);
+        productDetailsFragment.setArguments(b);
+        ((BaseActivity) getActivity()).addFragment(R.id.parent, productDetailsFragment, "details", "details", true);
+
     }
 }
