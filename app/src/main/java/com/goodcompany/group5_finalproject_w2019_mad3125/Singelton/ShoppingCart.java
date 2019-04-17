@@ -45,9 +45,8 @@ public class ShoppingCart {
         return null;
     }
 
-
-
-    public  void getCartCount(){
+    public  int getCartCount(){
+        return cartItems.size();
 
     }
 
@@ -58,10 +57,16 @@ public class ShoppingCart {
             totalprice = totalprice+ (entry.getValue().getPrice()* entry.getValue().getQuantity());
         }
         return totalprice;
+    }
+
+
+    public void checkout(){
+        orderdItems.putAll(cartItems);
 
     }
 
     public  void removeEverythingFromCart(){
+        cartItems.clear();
 
     }
 

@@ -72,7 +72,7 @@
                 android:paddingTop="@dimen/five_dp"
                 android:paddingRight="@dimen/twenty_dp"
                 android:paddingBottom="@dimen/five_dp"
-                android:text="Logout"
+                android:text="Your Cart"
                 android:textColor="@color/md_white_1000" />
         </com.goodcompany.group5_finalproject_w2019_mad3125.Utils.ShadowLayout>
     </RelativeLayout>

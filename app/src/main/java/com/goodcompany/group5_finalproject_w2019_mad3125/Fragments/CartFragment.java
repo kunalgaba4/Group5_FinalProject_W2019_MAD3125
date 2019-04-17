@@ -162,8 +162,12 @@ public class CartFragment extends Fragment implements ProductSelectListener {
                 getFragmentManager().popBackStack();
                 break;
             case R.id.sl_share:
-                Intent i = new Intent(getActivity(), CheckoutActivity.class);
-                startActivity(i);
+                if (ShoppingCart.ourInstance.getCartCount() == 0){
+                    ((BaseActivity)getActivity()).showMessage("There is nothing in yout cart");
+                }else{
+                    Intent i = new Intent(getActivity(), CheckoutActivity.class);
+                    startActivity(i);
+                }
                 break;
         }
     }

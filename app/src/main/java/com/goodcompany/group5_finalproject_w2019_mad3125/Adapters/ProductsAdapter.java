@@ -43,8 +43,9 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
                 .centerCrop()
                 .placeholder(R.mipmap.ic_launcher_round)
                 .error(R.mipmap.ic_launcher_round);
-        Glide.with(mContext).load(productsModals.get(i).getImgUrl()).apply(options).into(productsViewHolder.imagView);        productsViewHolder.description.setText(productsModals.get(i).getDescription());
-        productsViewHolder.price.setText("Price: "+productsModals.get(i).getPrice());
+        Glide.with(mContext).load(productsModals.get(i).getImgUrl()).apply(options).into(productsViewHolder.imagView);
+        productsViewHolder.description.setText(productsModals.get(i).getName());
+        productsViewHolder.price.setText("Price: $"+productsModals.get(i).getPrice());
 
     }
 

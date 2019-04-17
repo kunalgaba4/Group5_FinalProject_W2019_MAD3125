@@ -1,43 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".Fragments.ProfileFragment">
+    android:layout_height="match_parent">
 
     <RelativeLayout
-        android:id="@+id/dash_parent_rl"
+        android:id="@+id/header"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintRight_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:layout_marginLeft="@dimen/ten_dp"
-        android:layout_marginRight="@dimen/ten_dp"
-        android:layout_marginTop="@dimen/five_dp">
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent">
 
         <TextView
-            android:id="@+id/dashboard_tv"
+            android:id="@+id/heading"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_centerHorizontal="true"
+            android:gravity="center"
+            android:padding="@dimen/ten_dp"
+            android:text="Update Profile"
+            android:textColor="@color/black"
+            android:textSize="@dimen/eighteen_sp"
+            android:textStyle="bold" />
+
+        <com.goodcompany.group5_finalproject_w2019_mad3125.Utils.ShadowLayout
+            android:id="@+id/sl_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
-            android:layout_centerVertical="true"
-            android:letterSpacing="0.05"
-            android:padding="@dimen/ten_dp"
-            android:text="Profile"
-            android:textColor="@android:color/black"
-            android:textSize="29sp" />
+            android:layout_below="@id/heading"
+            app:sl_shadow_angle="90"
+            app:sl_shadow_color="@color/back_shadow"
+            app:sl_shadow_distance="10dp"
+            app:sl_shadow_radius="@dimen/ten_dp">
 
-        <ImageView
-            android:id="@+id/settings_iv"
+            <TextView
+                android:id="@+id/back"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_back_background"
+                android:paddingBottom="@dimen/five_dp"
+                android:paddingLeft="@dimen/twenty_dp"
+                android:paddingRight="@dimen/twenty_dp"
+                android:paddingTop="@dimen/five_dp"
+                android:text="Logout"
+                android:textColor="@color/md_white_1000" />
+        </com.goodcompany.group5_finalproject_w2019_mad3125.Utils.ShadowLayout>
+
+        <com.goodcompany.group5_finalproject_w2019_mad3125.Utils.ShadowLayout
+            android:id="@+id/sl_update"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_below="@id/heading"
             android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:padding="@dimen/ten_dp"
-            android:src="@drawable/setting" />
+            app:sl_shadow_angle="90"
+            app:sl_shadow_color="@color/share_shadow"
+            app:sl_shadow_distance="10dp"
+            app:sl_shadow_radius="@dimen/ten_dp">
+
+            <TextView
+                android:id="@+id/Update"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_below="@id/heading"
+                android:background="@drawable/button_share_background"
+                android:paddingLeft="@dimen/twenty_dp"
+                android:paddingTop="@dimen/five_dp"
+                android:paddingRight="@dimen/twenty_dp"
+                android:paddingBottom="@dimen/five_dp"
+                android:text="Update"
+                android:textColor="@color/md_white_1000" />
+        </com.goodcompany.group5_finalproject_w2019_mad3125.Utils.ShadowLayout>
     </RelativeLayout>
+    
 
 
-</android.support.constraint.ConstraintLayout>
+    <TextView
+        android:id="@+id/firstName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Firstname"
+        android:textSize="20sp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginTop="@dimen/fifteen_dp"
+        android:layout_below="@id/header"
+        />
+    <EditText
+        android:id="@+id/et_firstName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="\Firstname"
+        android:layout_below="@id/firstName"
+        android:layout_marginTop="10dp"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginLeft="10dp"
+
+        />
+    <TextView
+        android:id="@+id/lastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Lastname"
+        android:layout_below="@id/et_firstName"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+
+        android:textSize="20sp"/>
+    <EditText
+        android:id="@+id/et_lastName"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="\Lastname"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/lastName"
+        android:textSize="20sp"
+        android:layout_marginLeft="10dp"/>
+
+    <TextView
+        android:id="@+id/Address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Address"
+        android:layout_below="@id/et_lastName"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+
+        android:textSize="20sp"/>
+    <EditText
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="\Address"
+        android:layout_marginTop="10dp"
+
+        android:layout_below="@id/Address"
+        android:textSize="20sp"
+        android:layout_marginLeft="10dp"/>
+    <TextView
+        android:id="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Contact Number"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/address"
+        android:textSize="20sp"
+        android:layout_marginLeft="10dp"/>
+
+    <EditText
+        android:id="@+id/et_ph"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="\Contact number"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/phone"
+        android:textSize="20sp"
+        android:layout_marginLeft="10dp"/>
+
+
+</RelativeLayout>

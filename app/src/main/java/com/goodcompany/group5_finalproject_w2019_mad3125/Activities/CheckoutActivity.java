@@ -1,33 +1,41 @@
 package com.goodcompany.group5_finalproject_w2019_mad3125.Activities;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Spinner;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.craftman.cardform.Card;
 import com.craftman.cardform.CardForm;
 import com.craftman.cardform.OnPayBtnClickListner;
 import com.goodcompany.group5_finalproject_w2019_mad3125.R;
+import com.goodcompany.group5_finalproject_w2019_mad3125.Singelton.ShoppingCart;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class CheckoutActivity extends BaseActivity implements AdapterView.OnItemSelectedListener {
 
+    private CardForm cardForm;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
-        CardForm cardForm =  findViewById(R.id.card_form);
+        cardForm = findViewById(R.id.card_form);
+        TextView amount = (TextView) (cardForm.getRootView().findViewById(R.id.payment_amount));
+        amount.setText(String.valueOf(ShoppingCart.ourInstance.getTotalPrice()));
         cardForm.setPayBtnClickListner(new OnPayBtnClickListner() {
             @Override
             public void onClick(Card card) {
-                //Your code here!! use card.getXXX() for get any card property
-                //for instance card.getName();
+                ShoppingCart.ourInstance.removeEverythingFromCart();
+                Intent i = new Intent(CheckoutActivity.this, ConformationActivity.class);
+                startActivity(i);
             }
         });
 
