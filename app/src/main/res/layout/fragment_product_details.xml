@@ -172,17 +172,15 @@
                 </com.goodcompany.group5_finalproject_w2019_mad3125.Utils.ShadowLayout>
             </LinearLayout>
 
-
-
         </LinearLayout>
-
-
-
 
         <TextView
             android:id="@+id/tvDecription"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textSize="@dimen/twenty_sp"
+            android:layout_marginLeft="@dimen/ten_dp"
+            android:layout_marginRight="@dimen/ten_dp"
             android:hint="Description"/>
 
 

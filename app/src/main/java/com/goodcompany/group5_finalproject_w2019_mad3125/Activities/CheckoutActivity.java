@@ -29,13 +29,27 @@ public class CheckoutActivity extends BaseActivity implements AdapterView.OnItem
         setContentView(R.layout.activity_checkout);
         cardForm = findViewById(R.id.card_form);
         TextView amount = (TextView) (cardForm.getRootView().findViewById(R.id.payment_amount));
-        amount.setText(String.valueOf(ShoppingCart.ourInstance.getTotalPrice()));
+        amount.setText(String.valueOf("$"+ShoppingCart.ourInstance.getTotalPrice()));
+        TextView button = (cardForm.getRootView().findViewById(R.id.btn_pay));
+        button.setText("Pay Now");
+
         cardForm.setPayBtnClickListner(new OnPayBtnClickListner() {
             @Override
             public void onClick(Card card) {
-                ShoppingCart.ourInstance.removeEverythingFromCart();
-                Intent i = new Intent(CheckoutActivity.this, ConformationActivity.class);
-                startActivity(i);
+
+                if (ShoppingCart.ourInstance.getCartCount()>0){
+                    cardForm.setCardNameError("");
+                    cardForm.setCardNumberError("");
+                    cardForm.setCvcError("");
+                    TextView amount = (cardForm.getRootView().findViewById(R.id.payment_amount));
+                    amount.setText(String.valueOf("$ 0.0"));
+                    ShoppingCart.ourInstance.removeEverythingFromCart();
+                    Intent i = new Intent(CheckoutActivity.this, ConformationActivity.class);
+                    startActivity(i);
+                }else{
+                    showMessage("There is nothing in your cart");
+                }
+
             }
         });
 
