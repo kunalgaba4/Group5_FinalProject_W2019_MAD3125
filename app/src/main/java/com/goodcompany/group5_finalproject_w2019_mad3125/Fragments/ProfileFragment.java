@@ -71,6 +71,14 @@ public class ProfileFragment extends Fragment {
         // Required empty public constructor
     }
 
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+
+        if (isVisibleToUser){
+            getUserInfo();
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -86,8 +94,6 @@ public class ProfileFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
         mDatabase = FirebaseDatabase.getInstance().getReference().child("users").child(user.getUid());
-        getUserInfo();
-
     }
 
 
