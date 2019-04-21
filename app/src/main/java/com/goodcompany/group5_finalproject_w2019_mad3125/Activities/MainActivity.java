@@ -110,4 +110,8 @@ public class MainActivity extends BaseActivity {
         listFootIv.setImageResource(R.drawable.list);
         familyFootIv.setImageResource(R.drawable.family_active);
     }
+
+    @Override
+    public void onBackPressed() {
+    }
 }

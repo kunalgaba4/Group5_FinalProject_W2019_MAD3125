@@ -58,6 +58,7 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
     public class CartViewHolder extends RecyclerView.ViewHolder {
         private ImageView imagView,delete;
         private TextView description, price, quantity;
+
         public CartViewHolder(@NonNull View itemView) {
             super(itemView);
             imagView = itemView.findViewById(R.id.imageView);
@@ -65,7 +66,6 @@ public class CartAdapter extends RecyclerView.Adapter<CartAdapter.CartViewHolder
             price = itemView.findViewById(R.id.price);
             delete = itemView.findViewById(R.id.delete_iv);
             quantity = itemView.findViewById(R.id.quantity);
-
             delete.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

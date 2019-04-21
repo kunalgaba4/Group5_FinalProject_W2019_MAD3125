@@ -1,5 +1,6 @@
 package com.goodcompany.group5_finalproject_w2019_mad3125.Activities;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -28,7 +29,7 @@ public class CheckoutActivity extends BaseActivity implements AdapterView.OnItem
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
         cardForm = findViewById(R.id.card_form);
-        TextView amount = (TextView) (cardForm.getRootView().findViewById(R.id.payment_amount));
+        TextView amount = (cardForm.getRootView().findViewById(R.id.payment_amount));
         amount.setText(String.valueOf("$"+ShoppingCart.ourInstance.getTotalPrice()));
         TextView button = (cardForm.getRootView().findViewById(R.id.btn_pay));
         button.setText("Pay Now");
@@ -43,6 +44,7 @@ public class CheckoutActivity extends BaseActivity implements AdapterView.OnItem
                     cardForm.setCvcError("");
                     TextView amount = (cardForm.getRootView().findViewById(R.id.payment_amount));
                     amount.setText(String.valueOf("$ 0.0"));
+                    ShoppingCart.ourInstance.checkout();
                     ShoppingCart.ourInstance.removeEverythingFromCart();
                     Intent i = new Intent(CheckoutActivity.this, ConformationActivity.class);
                     startActivity(i);
@@ -89,4 +91,10 @@ public class CheckoutActivity extends BaseActivity implements AdapterView.OnItem
         // TODO Auto-generated method stub
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent i = new Intent();
+        setResult(Activity.RESULT_OK, i );
+        finish();
+    }
 }

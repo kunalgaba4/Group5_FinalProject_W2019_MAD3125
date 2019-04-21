@@ -133,6 +133,8 @@ public class LoginActivity extends BaseActivity {
 
 
     private void submitForm() {
+//        Intent i = new Intent(LoginActivity.this,MainActivity.class);
+//        startActivity(i);
         if (!validateName()) {
             return;
         }

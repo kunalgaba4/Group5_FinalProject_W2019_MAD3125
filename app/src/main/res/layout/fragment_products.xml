@@ -37,6 +37,7 @@
             app:sl_shadow_angle="90"
             app:sl_shadow_color="@color/back_shadow"
             app:sl_shadow_distance="10dp"
+            android:visibility="invisible"
             app:sl_shadow_radius="@dimen/ten_dp">
             <TextView
                 android:id="@+id/about"

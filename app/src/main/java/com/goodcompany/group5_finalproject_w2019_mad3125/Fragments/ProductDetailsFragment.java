@@ -1,6 +1,8 @@
 package com.goodcompany.group5_finalproject_w2019_mad3125.Fragments;
 
 
+import android.content.Context;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -57,6 +59,7 @@ public class ProductDetailsFragment extends Fragment {
     ShadowLayout slIncrease;
     private ProductsModal productsModal;
     int minteger = 1;
+    private Context mContext;
 
     public ProductDetailsFragment() {
     }
@@ -72,6 +75,12 @@ public class ProductDetailsFragment extends Fragment {
     }
 
     @Override
+    public void onAttach(Context context) {
+        super.onAttach(context);
+        mContext = context;
+    }
+
+    @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         productsModal = (ProductsModal) getArguments().getSerializable("product");
@@ -83,6 +92,8 @@ public class ProductDetailsFragment extends Fragment {
                 .placeholder(R.mipmap.ic_launcher_round)
                 .error(R.mipmap.ic_launcher_round);
         Glide.with(getActivity()).load(productsModal.getImgUrl()).apply(options).into(productIv);
+        tvDecription.setTypeface(Typeface.createFromAsset(mContext.getAssets(), "fonts/SF-UI-DISPLAY-SEMIBOLD.OTF"));
+        tvQuantity.setTypeface(Typeface.createFromAsset(mContext.getAssets(), "fonts/SF-UI-DISPLAY-BOLD.OTF"));
 
 
     }

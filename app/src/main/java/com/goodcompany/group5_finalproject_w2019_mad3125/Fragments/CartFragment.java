@@ -1,6 +1,7 @@
 package com.goodcompany.group5_finalproject_w2019_mad3125.Fragments;
 
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -12,6 +13,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -34,6 +36,8 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import butterknife.OnClick;
 import butterknife.Unbinder;
+
+import static android.app.Activity.RESULT_OK;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -71,6 +75,7 @@ public class CartFragment extends Fragment implements ProductSelectListener {
     @Override
     public void setUserVisibleHint(boolean isVisibleToUser) {
         super.setUserVisibleHint(isVisibleToUser);
+        Log.e("Check", "setUserVisibleHint: "+isVisibleToUser );
         if (isVisibleToUser) {
             productsModals.clear();
             productsModals.addAll(ShoppingCart.ourInstance.getItemsInCart());
@@ -82,6 +87,7 @@ public class CartFragment extends Fragment implements ProductSelectListener {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        Log.e("Check", "onCreateView: " );
         View view = inflater.inflate(R.layout.fragment_cart, container, false);
         unbinder = ButterKnife.bind(this, view);
         return view;
@@ -153,6 +159,7 @@ public class CartFragment extends Fragment implements ProductSelectListener {
     private void updateProducts() {
         productsModals.clear();
         productsModals.addAll(ShoppingCart.ourInstance.getItemsInCart());
+        tvPrice.setText(String.valueOf("$"+ShoppingCart.ourInstance.getTotalPrice()));
     }
 
     @OnClick({R.id.sl_back, R.id.sl_share})
@@ -163,12 +170,26 @@ public class CartFragment extends Fragment implements ProductSelectListener {
                 break;
             case R.id.sl_share:
                 if (ShoppingCart.ourInstance.getCartCount() == 0){
-                    ((BaseActivity)getActivity()).showMessage("There is nothing in yout cart");
+                    ((BaseActivity)getActivity()).showMessage("There is nothing in your cart");
                 }else{
                     Intent i = new Intent(getActivity(), CheckoutActivity.class);
-                    startActivity(i);
+                    startActivityForResult(i, 45);
                 }
                 break;
+        }
+    }
+
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        Log.e("check", "onActivityResult: " );
+        if (requestCode == 45){
+            if (resultCode == RESULT_OK){
+                Log.e("check", "onActivityResult: inisde ok" );
+                if (productsModals != null && productsAdapter != null)
+                updateProducts();
+                setupProductsAdapter();
+            }
         }
     }
 }

@@ -1,7 +1,6 @@
 package com.goodcompany.group5_finalproject_w2019_mad3125.Adapters;
 
 import android.content.Context;
-import android.graphics.Typeface;
 import android.support.annotation.NonNull;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -18,35 +17,38 @@ import com.goodcompany.group5_finalproject_w2019_mad3125.R;
 
 import java.util.ArrayList;
 
-public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.ProductsViewHolder> {
+public class OrderDetailsAdapter extends RecyclerView.Adapter<OrderDetailsAdapter.OrderViewHolder> {
 
     private Context mContext;
     private ArrayList<ProductsModal> productsModals = new ArrayList<>();
     private ProductSelectListener productSelectListener;
 
-    public ProductsAdapter(Context mContext, ArrayList<ProductsModal> productsModals, ProductSelectListener productSelectListener){
+    public OrderDetailsAdapter(Context mContext, ArrayList<ProductsModal> productsModals, ProductSelectListener productSelectListener) {
         this.mContext = mContext;
         this.productsModals.addAll(productsModals);
         this.productSelectListener = productSelectListener;
 
     }
+
     @NonNull
     @Override
-    public ProductsViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.custom_product_row, viewGroup, false);
-        ProductsViewHolder productsViewHolder  = new ProductsViewHolder(view);
-        return productsViewHolder;
+    public OrderDetailsAdapter.OrderViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.custom_cart_row, viewGroup, false);
+        OrderDetailsAdapter.OrderViewHolder orderViewHolder = new OrderDetailsAdapter.OrderViewHolder(view);
+        return orderViewHolder;
     }
 
     @Override
-    public void onBindViewHolder(@NonNull ProductsViewHolder productsViewHolder, int i) {
+    public void onBindViewHolder(@NonNull OrderDetailsAdapter.OrderViewHolder orderViewHolder, int i) {
         RequestOptions options = new RequestOptions()
                 .centerCrop()
                 .placeholder(R.mipmap.ic_launcher_round)
                 .error(R.mipmap.ic_launcher_round);
-        Glide.with(mContext).load(productsModals.get(i).getImgUrl()).apply(options).into(productsViewHolder.imagView);
-        productsViewHolder.description.setText(productsModals.get(i).getName());
-        productsViewHolder.price.setText("Price: $"+productsModals.get(i).getPrice());
+        Glide.with(mContext).load(productsModals.get(i).getImgUrl()).apply(options).into(orderViewHolder.imagView);
+        orderViewHolder.description.setText(productsModals.get(i).getName());
+        orderViewHolder.price.setText("Price: $" + productsModals.get(i).getPrice());
+        orderViewHolder.price.setText("Price: "+(productsModals.get(i).getPrice()*productsModals.get(i).getQuantity()));
+        orderViewHolder.quantity.setText("Quantity: "+productsModals.get(i).getQuantity());
 
     }
 
@@ -55,17 +57,18 @@ public class ProductsAdapter extends RecyclerView.Adapter<ProductsAdapter.Produc
         return productsModals.size();
     }
 
-    public class ProductsViewHolder extends RecyclerView.ViewHolder {
-        private ImageView imagView;
-        private TextView description, price;
-        public ProductsViewHolder(@NonNull View itemView) {
+    public class OrderViewHolder extends RecyclerView.ViewHolder {
+        private ImageView imagView,delete_iv;
+        private TextView description, price, quantity;
+
+        public OrderViewHolder(@NonNull View itemView) {
             super(itemView);
             imagView = itemView.findViewById(R.id.imageView);
             description = itemView.findViewById(R.id.description);
             price = itemView.findViewById(R.id.price);
-            description.setTypeface(Typeface.createFromAsset(mContext.getAssets(), "fonts/SF-UI-DISPLAY-BOLD.OTF"));
-            price.setTypeface(Typeface.createFromAsset(mContext.getAssets(), "fonts/SF-UI-DISPLAY-BOLD.OTF"));
-
+            delete_iv = itemView.findViewById(R.id.delete_iv);
+            quantity = itemView.findViewById(R.id.quantity);
+            delete_iv.setVisibility(View.INVISIBLE);
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {

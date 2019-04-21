@@ -8,6 +8,7 @@ import android.support.v4.content.ContextCompat;
 public class Constants {
     public static int sHeight;
     public static int sWidth;
+    public static final int REQUEST_CODE_FROM_FACE_CHOOSE = 11;
 
     public static boolean checkPermissionForPhoneState(Context context) {
         if (context != null) {
