@@ -9,4 +9,4 @@ Shopping Cart is the final project that we have developed during our college. He
 
 ## Screenshot
 
-<img src=“https://github.com/kunalgaba4/Group5_FinalProject_W2019_MAD3125/blob/master/Images/UserDetails.png” height="350" width="200"/>                                                                                                                     
+<img src="https://github.com/kunalgaba4/Group5_FinalProject_W2019_MAD3125/blob/master/Images/UserDetails.png" height="350" width="200"/>                                                                                                                     
