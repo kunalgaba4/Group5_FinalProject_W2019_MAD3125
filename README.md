@@ -1,4 +1,4 @@
-# Android Mobile Application
+# Shopping Android Mobile Application
 
 Shopping Cart is the final project that we have developed during our college. Here are the list of things that are present in the project.
 1) User can Login, Signup and can also recover password by email if incase he forgots.
